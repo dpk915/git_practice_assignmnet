@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="wp1" class="com.masai.WorkoutProgram"> 
+	
+	<constructor-arg name="programid" value="1"/>
+	<constructor-arg name="programname" value="Cardio"/>
+	<constructor-arg name="programduration" value="20"/>
+</bean>
+<bean id="wp2" class="com.masai.WorkoutProgram"> 
+	
+	<constructor-arg name="programid" value="2"/>
+	<constructor-arg name="programname" value="Strength"/>
+	<constructor-arg name="programduration" value="30"/>
+</bean>
+
+<bean id="wp3" class="com.masai.WorkoutProgram"> 
+	
+	<constructor-arg name="programid" value="3"/>
+	<constructor-arg name="programname" value="Yoga"/>
+	<constructor-arg name="programduration" value="10"/>
+</bean>
+
+
+<bean id="m1" class="com.masai.Member"> 
+	<constructor-arg value="1"/>
+	<constructor-arg value="Deepak"/>
+	<constructor-arg value="25"/>
+	<constructor-arg value="Gold"/>
+</bean>
+
+<bean id="m2" class="com.masai.Member"> 
+	<constructor-arg value="2"/>
+	<constructor-arg value="Abdul"/>
+	<constructor-arg value="22"/>
+	<constructor-arg value="Silver"/>
+</bean>
+
+<bean id="m3" class="com.masai.Member"> 
+	<constructor-arg value="3"/>
+	<constructor-arg value="Abdul Rashid"/>
+	<constructor-arg value="23"/>
+	<constructor-arg value="platinium"/>
+</bean>
+
+<bean id="map" class="com.masai.GymManager" init-method="initilized" destroy-method="shutDown" lazy-init="true">
+	<property name="gymPrograms">
+		<map>
+			<entry key-ref="wp1" value-ref="m1"/>
+					<entry key-ref="wp2" value-ref="m2"/>
+							<entry key-ref="wp3" value-ref="m3"/>
+		</map>
+	</property>
+</bean>
+    
+ 
+</beans>

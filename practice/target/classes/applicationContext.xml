@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="sql" class="com.masai.MySql" >
+	<property name="url"  value="jdbc:mysql://localhost:3306/Mssql"></property>
+	<property name="username" value="root"></property>
+	<property name="password" value="Gabbar@915"></property>
+    </bean>
+
+<bean id="mssql" class="com.masai.MS_Sql" >
+	<property name="url"  value="jdbc:mysql://localhost:3306/Mssql"></property>
+	<property name="username" value="root"></property>
+	<property name="password" value="Gabbar@915"></property>
+    </bean>
+  
+ <bean id="oracle" class="com.masai.Oracle" >
+		<property name="url"  value="jdbc:mysql://localhost:3306/Oracle"></property>
+	<property name="username" value="root"></property>
+	<property name="password" value="Gabbar@915"></property>
+    </bean>
+   
+   <bean id="service" class="com.masai.Service">
+	   <constructor-arg name="db" ref="oracle"></constructor-arg>
+   </bean> 
+   
+   
+ 
+</beans>
